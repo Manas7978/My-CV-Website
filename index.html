@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manas Ranjan Dalai — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08080f;
+  --bg2: #10101a;
+  --bg3: #16162a;
+  --card: #12121f;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f2f0ff;
+  --text2: #9490b8;
+  --text3: #4e4a6a;
+  --p1: #7c5cfc; --p1b: rgba(124,92,252,0.15); --p1l: #a98bff;
+  --p2: #ff6b9d; --p2b: rgba(255,107,157,0.15); --p2l: #ff99c0;
+  --p3: #00d4aa; --p3b: rgba(0,212,170,0.12); --p3l: #4dffdc;
+  --p4: #ffb830; --p4b: rgba(255,184,48,0.12); --p4l: #ffd47a;
+  --p5: #3ecfff; --p5b: rgba(62,207,255,0.12); --p5l: #90e5ff;
+  --p6: #ff7043; --p6b: rgba(255,112,67,0.12); --p6l: #ffaa88;
+}
+[data-theme="light"] {
+  --bg: #f5f3ff;
+  --bg2: #edeaff;
+  --bg3: #e3dfff;
+  --card: #ffffff;
+  --border: rgba(80,50,200,0.1);
+  --border2: rgba(80,50,200,0.2);
+  --text: #1a1535;
+  --text2: #5a5280;
+  --text3: #a09cc0;
+  --p1: #6040e8; --p1b: rgba(96,64,232,0.1); --p1l: #7c5cfc;
+  --p2: #e0406a; --p2b: rgba(224,64,106,0.1); --p2l: #ff6b9d;
+  --p3: #00957a; --p3b: rgba(0,149,122,0.1); --p3l: #00d4aa;
+  --p4: #c47800; --p4b: rgba(196,120,0,0.1); --p4l: #ffb830;
+  --p5: #0099cc; --p5b: rgba(0,153,204,0.1); --p5l: #3ecfff;
+  --p6: #d44020; --p6b: rgba(212,64,32,0.1); --p6l: #ff7043;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15.5px;line-height:1.75;transition:background .3s,color .3s;letter-spacing:.01em;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,8,15,0.88);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);transition:background .3s,height .3s,box-shadow .3s;}
+nav.scrolled{height:52px;box-shadow:0 4px 30px rgba(0,0,0,.3);}
+[data-theme="light"] nav{background:rgba(245,243,255,0.92);}
+.nav-logo{font-family:'Outfit',sans-serif;font-weight:900;font-size:1.15rem;letter-spacing:-.02em;background:linear-gradient(135deg,var(--p1l),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:color .2s,letter-spacing .2s;font-family:'Space Grotesk',sans-serif;}
+.nav-links a:hover{color:var(--p1l);letter-spacing:.14em;}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.theme-toggle{width:46px;height:26px;border-radius:13px;border:1.5px solid var(--border2);background:var(--bg3);cursor:pointer;position:relative;transition:background .3s;flex-shrink:0;}
+.theme-toggle::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p2));transition:transform .3s;box-shadow:0 0 8px rgba(124,92,252,.5);}
+[data-theme="light"] .theme-toggle::after{transform:translateX(20px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);}
+.mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;z-index:190;flex-direction:column;}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--text2);text-decoration:none;font-size:14px;padding:10px 0;border-bottom:1px solid var(--border);}
+.mobile-menu a:last-child{border-bottom:none}
+
+main{padding-top:62px;}
+section{padding:5.5rem 2rem;max-width:1120px;margin:0 auto;}
+.sec-eye{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem;font-family:'Space Grotesk',sans-serif;}
+.sec-title{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:.6rem;letter-spacing:-.03em;}
+.sec-bar{width:56px;height:5px;border-radius:3px;margin:1rem 0 2.8rem;}
+.bar1{background:linear-gradient(90deg,var(--p1),var(--p2));}
+.bar2{background:linear-gradient(90deg,var(--p3),var(--p5));}
+.bar3{background:linear-gradient(90deg,var(--p4),var(--p6));}
+.bar4{background:linear-gradient(90deg,var(--p2),var(--p1));}
+.bar5{background:linear-gradient(90deg,var(--p5),var(--p3));}
+.bar6{background:linear-gradient(90deg,var(--p6),var(--p4));}
+.bar7{background:linear-gradient(90deg,var(--p1),var(--p3));}
+.c1{color:var(--p1l);} .c2{color:var(--p2l);} .c3{color:var(--p3l);} .c4{color:var(--p4l);} .c5{color:var(--p5l);} .c6{color:var(--p6l);}
+.sec-divider{border:none;border-top:1px solid var(--border);margin:0;}
+
+/* HERO */
+.hero{min-height:92vh;display:flex;align-items:center;padding:7rem 2rem 4rem;max-width:1120px;margin:0 auto;gap:4rem;}
+.hero-left{flex:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--p1b);border:1px solid rgba(124,92,252,.25);border-radius:50px;padding:5px 14px 5px 8px;margin-bottom:2rem;}
+.dot-pulse{width:8px;height:8px;border-radius:50%;background:var(--p1);box-shadow:0 0 8px var(--p1);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-eyebrow span{font-size:11.5px;font-weight:600;color:var(--p1l);letter-spacing:.06em;font-family:'Space Grotesk',sans-serif;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(3rem,7vw,5.8rem);font-weight:900;line-height:1.04;letter-spacing:-.04em;margin-bottom:1.3rem;}
+.grad1{background:linear-gradient(135deg,var(--p1l) 0%,var(--p2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-desc{font-size:1.08rem;color:var(--text2);max-width:540px;line-height:1.85;margin-bottom:2rem;font-weight:400;letter-spacing:.005em;}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem;}
+.pill{border-radius:50px;font-size:11.5px;font-weight:600;padding:5px 15px;border:1.5px solid transparent;transition:.2s;cursor:default;font-family:'Space Grotesk',sans-serif;letter-spacing:.03em;}
+.pill:hover{transform:translateY(-2px);}
+.pill-v{background:var(--p1b);color:var(--p1l);border-color:rgba(124,92,252,.25);}
+.pill-p{background:var(--p2b);color:var(--p2l);border-color:rgba(255,107,157,.25);}
+.pill-g{background:var(--p3b);color:var(--p3l);border-color:rgba(0,212,170,.2);}
+.pill-y{background:var(--p4b);color:var(--p4l);border-color:rgba(255,184,48,.2);}
+.pill-b{background:var(--p5b);color:var(--p5l);border-color:rgba(62,207,255,.2);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-grad{background:linear-gradient(135deg,var(--p1),var(--p2));color:#fff;border:none;border-radius:50px;padding:12px 30px;font-size:13.5px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(124,92,252,.35);transition:transform .2s,box-shadow .2s;letter-spacing:.04em;}
+.btn-grad:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(124,92,252,.45);}
+.btn-ghost{background:transparent;border:1.5px solid var(--border2);color:var(--text2);border-radius:50px;padding:12px 30px;font-size:13.5px;font-weight:600;font-family:'Space Grotesk',sans-serif;cursor:pointer;text-decoration:none;transition:.2s;letter-spacing:.04em;}
+.btn-ghost:hover{border-color:var(--p1l);color:var(--p1l);}
+
+/* PROFILE CARD */
+.hero-right{flex-shrink:0;width:300px;}
+.profile-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem 1.75rem;position:relative;overflow:hidden;transition:transform .1s ease;}
+.profile-card::before{content:'';position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.18),transparent 70%);pointer-events:none;}
+.profile-card::after{content:'';position:absolute;bottom:-50px;left:-50px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,157,.12),transparent 70%);pointer-events:none;}
+.avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p2),var(--p3));display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:2rem;font-weight:900;color:#fff;margin:0 auto 1rem;box-shadow:0 0 30px rgba(124,92,252,.3);letter-spacing:-.03em;padding:3px;}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center;display:block;}
+.profile-card h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;text-align:center;margin-bottom:4px;letter-spacing:-.01em;}
+.profile-card .role{font-size:11.5px;color:var(--text2);text-align:center;line-height:1.65;margin-bottom:1.25rem;font-family:'DM Sans',sans-serif;}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;border-top:1px solid var(--border);padding-top:1.25rem;}
+.stat-box{background:var(--bg3);border-radius:10px;padding:.6rem .4rem;text-align:center;}
+.stat-box .snum{display:block;font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:800;letter-spacing:-.02em;}
+.stat-box .slbl{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;font-family:'Space Grotesk',sans-serif;font-weight:500;}
+
+/* ── EDUCATION TREE ── */
+@keyframes trunkGrow{from{height:0}to{height:70px}}
+@keyframes branchGrow{from{width:0;opacity:0}to{width:82%;opacity:1}}
+@keyframes nodeAppear{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes treePulse{0%,100%{box-shadow:0 0 8px rgba(124,92,252,.5)}50%{box-shadow:0 0 22px rgba(124,92,252,1),0 0 40px rgba(255,107,157,.4)}}
+@keyframes cardDrop{from{opacity:0;transform:translateY(-16px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.edu-tree{display:flex;flex-direction:column;align-items:center;}
+
+/* Root node — EDUCATION label */
+.tree-root{display:flex;flex-direction:column;align-items:center;margin-bottom:0;}
+.tree-root-box{background:linear-gradient(135deg,var(--p1),var(--p2));border-radius:16px;padding:10px 32px;font-family:'Outfit',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:.04em;color:#fff;box-shadow:0 0 24px rgba(124,92,252,.5),0 0 60px rgba(255,107,157,.2);animation:treePulse 3s ease-in-out infinite;position:relative;z-index:2;}
+.tree-root-box::after{content:'🎓';margin-left:8px;}
+.tree-trunk{width:4px;height:70px;background:linear-gradient(to bottom,var(--p2),var(--p1));border-radius:2px;animation:trunkGrow .6s ease both;}
+
+/* Horizontal branch bar */
+.tree-branch-bar{height:4px;width:82%;background:linear-gradient(90deg,var(--p5),var(--p1),var(--p2),var(--p3),var(--p4));border-radius:2px;animation:branchGrow .7s .5s ease both;box-shadow:0 0 10px rgba(124,92,252,.3);}
+
+/* Node columns */
+.tree-nodes{display:flex;justify-content:space-between;width:82%;gap:8px;margin-top:0;}
+.tree-node{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
+
+/* Vertical stem from branch bar to dot */
+.tree-stem{width:3px;height:36px;border-radius:2px;}
+.tn1 .tree-stem{background:linear-gradient(to bottom,var(--p1),transparent);}
+.tn2 .tree-stem{background:linear-gradient(to bottom,var(--p2),transparent);}
+.tn3 .tree-stem{background:linear-gradient(to bottom,var(--p3),transparent);}
+.tn4 .tree-stem{background:linear-gradient(to bottom,var(--p4),transparent);}
+.tn5 .tree-stem{background:linear-gradient(to bottom,var(--p5),transparent);}
+
+/* Glowing dot */
+.tree-dot{width:20px;height:20px;border-radius:50%;border:3px solid var(--bg);position:relative;z-index:2;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;cursor:pointer;animation:nodeAppear .5s cubic-bezier(.34,1.56,.64,1) both;}
+.tn1 .tree-dot{background:var(--p1);box-shadow:0 0 14px var(--p1);animation-delay:.6s;}
+.tn2 .tree-dot{background:var(--p2);box-shadow:0 0 14px var(--p2);animation-delay:.75s;}
+.tn3 .tree-dot{background:var(--p3);box-shadow:0 0 14px var(--p3);animation-delay:.9s;}
+.tn4 .tree-dot{background:var(--p4);box-shadow:0 0 14px var(--p4);animation-delay:1.05s;}
+.tn5 .tree-dot{background:var(--p5);box-shadow:0 0 14px var(--p5);animation-delay:1.2s;}
+.tree-node:hover .tree-dot{transform:scale(1.6);}
+.tn1:hover .tree-dot{box-shadow:0 0 28px var(--p1),0 0 56px rgba(124,92,252,.4);}
+.tn2:hover .tree-dot{box-shadow:0 0 28px var(--p2),0 0 56px rgba(255,107,157,.4);}
+.tn3:hover .tree-dot{box-shadow:0 0 28px var(--p3),0 0 56px rgba(0,212,170,.4);}
+.tn4:hover .tree-dot{box-shadow:0 0 28px var(--p4),0 0 56px rgba(255,184,48,.4);}
+.tn5:hover .tree-dot{box-shadow:0 0 28px var(--p5),0 0 56px rgba(62,207,255,.4);}
+
+/* Card always visible below dot */
+.tree-card{width:100%;margin-top:12px;animation:cardDrop .5s cubic-bezier(.22,1,.36,1) both;}
+.tn1 .tree-card{animation-delay:.7s;}
+.tn2 .tree-card{animation-delay:.85s;}
+.tn3 .tree-card{animation-delay:1s;}
+.tn4 .tree-card{animation-delay:1.15s;}
+.tn5 .tree-card{animation-delay:1.3s;}
+.tree-card-inner{background:rgba(18,18,31,.85);border:1px solid var(--border);border-radius:14px;padding:1rem 1rem;backdrop-filter:blur(14px);transition:transform .25s,box-shadow .25s;cursor:default;}
+.tree-node:hover .tree-card-inner{transform:translateY(-4px);}
+.tn1 .tree-card-inner{border-top:3px solid var(--p1);}
+.tn2 .tree-card-inner{border-top:3px solid var(--p2);}
+.tn3 .tree-card-inner{border-top:3px solid var(--p3);}
+.tn4 .tree-card-inner{border-top:3px solid var(--p4);}
+.tn5 .tree-card-inner{border-top:3px solid var(--p5);}
+.tn1:hover .tree-card-inner{box-shadow:0 8px 28px rgba(124,92,252,.3);}
+.tn2:hover .tree-card-inner{box-shadow:0 8px 28px rgba(255,107,157,.3);}
+.tn3:hover .tree-card-inner{box-shadow:0 8px 28px rgba(0,212,170,.3);}
+.tn4:hover .tree-card-inner{box-shadow:0 8px 28px rgba(255,184,48,.3);}
+.tn5:hover .tree-card-inner{box-shadow:0 8px 28px rgba(62,207,255,.3);}
+
+.tl-year{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;font-family:'Space Grotesk',sans-serif;}
+.tl-ttl{font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;margin-bottom:4px;letter-spacing:-.01em;line-height:1.35;}
+.tl-sub{font-size:.74rem;color:var(--text2);line-height:1.6;}
+.score-chip{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:50px;margin-top:6px;font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;}
+
+@media(max-width:900px){.tree-nodes,.tree-branch-bar{width:98%;}.tree-nodes{flex-wrap:wrap;gap:10px;}.tree-node{flex:0 0 calc(50% - 5px);}}
+@media(max-width:500px){.tree-node{flex:0 0 100%;}}
+
+/* RESEARCH */
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;}
+.r-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:.25s;position:relative;overflow:hidden;}
+.r-card:hover{transform:translateY(-4px);}
+.r-card.col1{border-top:3px solid var(--p1);}
+.r-card.col2{border-top:3px solid var(--p2);}
+.r-card.col3{border-top:3px solid var(--p3);}
+.r-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px;}
+.ri1{background:var(--p1b);}
+.ri2{background:var(--p2b);}
+.ri3{background:var(--p3b);}
+.r-card h4{font-size:.95rem;font-weight:700;margin-bottom:6px;color:var(--text);font-family:'Outfit',sans-serif;letter-spacing:-.01em;}
+.r-card p{font-size:.86rem;color:var(--text2);line-height:1.7;}
+
+/* AWARDS */
+.aw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;}
+.aw-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.4rem 1.2rem;transition:.25s;text-align:center;}
+.aw-card:hover{transform:translateY(-4px);}
+.aw-icon{font-size:2rem;margin-bottom:10px;display:block;}
+.aw-card h4{font-size:.9rem;font-weight:700;margin-bottom:5px;line-height:1.4;font-family:'Outfit',sans-serif;}
+.aw-card p{font-size:.79rem;color:var(--text2);line-height:1.6;}
+.aw-card.a1{border-top:3px solid var(--p1);}
+.aw-card.a2{border-top:3px solid var(--p4);}
+.aw-card.a3{border-top:3px solid var(--p3);}
+.aw-card.a4{border-top:3px solid var(--p2);}
+
+/* PUBLICATIONS */
+.pub-list{display:flex;flex-direction:column;gap:14px;}
+.pub-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.6rem;display:flex;gap:1.2rem;align-items:flex-start;transition:.25s;}
+.pub-card:hover{border-color:var(--p1l);transform:translateX(4px);}
+.pub-icon{width:46px;height:46px;flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.pi1{background:var(--p5b);}
+.pi2{background:var(--p3b);}
+.pub-type{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px;font-family:'Space Grotesk',sans-serif;}
+.pub-card h4{font-size:.95rem;font-weight:700;line-height:1.55;margin-bottom:5px;color:var(--text);font-family:'Outfit',sans-serif;letter-spacing:-.01em;}
+.pub-card p{font-size:.84rem;color:var(--text2);line-height:1.65;}
+.scopus-badge{display:inline-block;background:linear-gradient(135deg,var(--p5b),var(--p3b));border:1px solid rgba(62,207,255,.25);color:var(--p5l);font-size:9.5px;font-weight:700;letter-spacing:.12em;padding:3px 11px;border-radius:50px;margin-top:8px;font-family:'Space Grotesk',sans-serif;}
+
+/* CONFERENCES */
+.conf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
+.conf-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem;transition:.25s;position:relative;overflow:hidden;}
+.conf-card:hover{border-color:var(--border2);transform:translateY(-4px);}
+.cnum{font-family:'Outfit',sans-serif;font-size:2.2rem;font-weight:900;line-height:1;margin-bottom:8px;opacity:.25;letter-spacing:-.04em;}
+.conf-card h4{font-size:.88rem;font-weight:600;line-height:1.55;margin-bottom:6px;color:var(--text);font-family:'DM Sans',sans-serif;}
+.conf-card p{font-size:.79rem;color:var(--text3);line-height:1.55;}
+.conf-card:nth-child(5n+1) .cnum{color:var(--p1);opacity:.35;}
+.conf-card:nth-child(5n+2) .cnum{color:var(--p2);opacity:.35;}
+.conf-card:nth-child(5n+3) .cnum{color:var(--p3);opacity:.35;}
+.conf-card:nth-child(5n+4) .cnum{color:var(--p4);opacity:.35;}
+.conf-card:nth-child(5n+0) .cnum{color:var(--p5);opacity:.35;}
+.conf-card:nth-child(5n+1){border-left:3px solid var(--p1);}
+.conf-card:nth-child(5n+2){border-left:3px solid var(--p2);}
+.conf-card:nth-child(5n+3){border-left:3px solid var(--p3);}
+.conf-card:nth-child(5n+4){border-left:3px solid var(--p4);}
+.conf-card:nth-child(5n+0){border-left:3px solid var(--p5);}
+.conf-card:nth-child(5n+1):hover{box-shadow:0 8px 28px rgba(124,92,252,.2);}
+.conf-card:nth-child(5n+2):hover{box-shadow:0 8px 28px rgba(255,107,157,.2);}
+.conf-card:nth-child(5n+3):hover{box-shadow:0 8px 28px rgba(0,212,170,.2);}
+.conf-card:nth-child(5n+4):hover{box-shadow:0 8px 28px rgba(255,184,48,.2);}
+.conf-card:nth-child(5n+0):hover{box-shadow:0 8px 28px rgba(62,207,255,.2);}
+
+/* SKILLS */
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;}
+.sk-head{font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:14px;font-family:'Space Grotesk',sans-serif;}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+.stag{border-radius:10px;font-size:12px;font-weight:600;padding:7px 15px;border:1.5px solid transparent;transition:transform .2s,box-shadow .2s;cursor:default;font-family:'Space Grotesk',sans-serif;letter-spacing:.02em;}
+.stag:hover{transform:perspective(400px) rotateY(-8deg) translateY(-3px) scale(1.08);}
+.stag.s1{background:var(--p1b);color:var(--p1l);border-color:rgba(124,92,252,.2);}
+.stag.s1:hover{box-shadow:0 4px 14px rgba(124,92,252,.4);}
+.stag.s2{background:var(--p2b);color:var(--p2l);border-color:rgba(255,107,157,.2);}
+.stag.s2:hover{box-shadow:0 4px 14px rgba(255,107,157,.4);}
+.stag.s3{background:var(--p3b);color:var(--p3l);border-color:rgba(0,212,170,.18);}
+.stag.s3:hover{box-shadow:0 4px 14px rgba(0,212,170,.4);}
+.stag.s4{background:var(--p4b);color:var(--p4l);border-color:rgba(255,184,48,.18);}
+.stag.s4:hover{box-shadow:0 4px 14px rgba(255,184,48,.4);}
+.stag.s5{background:var(--p5b);color:var(--p5l);border-color:rgba(62,207,255,.18);}
+.stag.s5:hover{box-shadow:0 4px 14px rgba(62,207,255,.4);}
+.stag.s6{background:var(--p6b);color:var(--p6l);border-color:rgba(255,112,67,.18);}
+.stag.s6:hover{box-shadow:0 4px 14px rgba(255,112,67,.4);}
+
+/* CONTACT */
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.ct-left h3{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:.8rem;letter-spacing:-.02em;}
+.ct-left p{color:var(--text2);font-size:.93rem;line-height:1.85;margin-bottom:1.5rem;}
+.ct-link{display:flex;align-items:center;gap:12px;color:var(--text2);text-decoration:none;font-size:13.5px;padding:12px 0;border-bottom:1px solid var(--border);transition:.2s;font-weight:500;}
+.ct-link:hover{color:var(--p1l);}
+.ct-ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.ci1{background:var(--p2b);}
+.ci2{background:var(--p5b);}
+.ci3{background:var(--p3b);}
+.ct-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;background-image:radial-gradient(ellipse at top right,rgba(124,92,252,.08) 0%,transparent 60%),radial-gradient(ellipse at bottom left,rgba(255,107,157,.06) 0%,transparent 60%);}
+.ct-card h4{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.4rem;letter-spacing:-.01em;}
+.ct-card .sub{font-size:.84rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.6;}
+.mem-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--border);font-size:13px;color:var(--text2);font-weight:500;}
+.mdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+footer{border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;font-size:12px;color:var(--text3);background:linear-gradient(135deg,rgba(124,92,252,.04),rgba(255,107,157,.04));font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;}
+.ft-grad{background:linear-gradient(135deg,var(--p1l),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+/* ── NAME HIGHLIGHT ── */
+@keyframes nameWave{0%,100%{transform:translateY(0) rotateX(0)}50%{transform:translateY(-8px) rotateX(12deg)}}
+@keyframes nameGlow{0%,100%{text-shadow:0 0 20px rgba(169,139,255,.6),0 4px 0 rgba(124,92,252,.4),0 8px 0 rgba(124,92,252,.2),0 12px 20px rgba(0,0,0,.4)}50%{text-shadow:0 0 40px rgba(255,153,192,.8),0 4px 0 rgba(255,107,157,.5),0 8px 0 rgba(255,107,157,.25),0 12px 30px rgba(0,0,0,.5)}}
+.name-letter{display:inline-block;animation:nameWave 2.5s ease-in-out infinite;transform-style:preserve-3d;cursor:default;transition:color .2s;}
+.name-letter:hover{animation:none;transform:translateY(-12px) rotateY(20deg) scale(1.3);}
+.nl0{animation-delay:0s;color:#a98bff;}
+.nl1{animation-delay:.08s;color:#b87fff;}
+.nl2{animation-delay:.16s;color:#cc6fff;}
+.nl3{animation-delay:.24s;color:#e060c0;}
+.nl4{animation-delay:.32s;color:#ff6b9d;}
+.nl5{animation-delay:.40s;color:#ff7a8a;}
+.nl6{animation-delay:.48s;color:#ff9060;}
+.nl7{animation-delay:.56s;color:#ffb830;}
+.nl8{animation-delay:.64s;color:#ffd47a;}
+.nl9{animation-delay:.72s;color:#ffe066;}
+.nl10{animation-delay:.80s;color:#c8ff60;}
+.nl11{animation-delay:.88s;color:#4dffdc;}
+.nl12{animation-delay:.96s;color:#3ecfff;}
+.nl13{animation-delay:1.04s;color:#90e5ff;}
+.nl14{animation-delay:1.12s;color:#a98bff;}
+.nl15{animation-delay:1.20s;color:#ff99c0;}
+.nl16{animation-delay:1.28s;color:#4dffdc;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(3rem,7vw,5.8rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.3rem;perspective:600px;transform-style:preserve-3d;}
+.name-hl .name-letter{font-size:inherit;font-weight:inherit;}
+.name-hl-sm .name-letter{font-size:inherit;font-weight:inherit;animation-duration:3.5s;}
+
+/* ── NAV DROPDOWNS ── */
+.nav-item{position:relative;}
+.nav-top{display:flex;align-items:center;gap:4px;}
+.nav-arrow{font-size:9px;transition:transform .25s;display:inline-block;}
+.nav-item.open .nav-arrow{transform:rotate(180deg);}
+.nav-dropdown{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(-8px) rotateX(-12deg);transform-origin:top center;opacity:0;pointer-events:none;background:rgba(12,12,24,0.96);border:1px solid var(--border2);border-radius:14px;padding:8px;min-width:190px;backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(124,92,252,.1);transition:opacity .28s cubic-bezier(.22,1,.36,1),transform .28s cubic-bezier(.22,1,.36,1);z-index:300;perspective:600px;}
+[data-theme="light"] .nav-dropdown{background:rgba(245,243,255,0.97);box-shadow:0 20px 60px rgba(80,50,200,.15);}
+.nav-item.open .nav-dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0) rotateX(0);}
+.nd-link{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:9px;color:var(--text2);text-decoration:none;font-size:12.5px;font-weight:500;font-family:'Space Grotesk',sans-serif;transition:background .18s,color .18s,transform .18s;white-space:nowrap;}
+.nd-link:hover{background:var(--p1b);color:var(--p1l);transform:translateX(4px);}
+
+/* ── 3D CARD TILT (all cards) ── */
+.r-card,.aw-card,.conf-card{transform-style:preserve-3d;transition:transform .15s ease,box-shadow .25s;}
+.r-card:hover,.aw-card:hover,.conf-card:hover{transform:perspective(700px) rotateY(-4deg) rotateX(4deg) translateY(-6px) scale(1.02);}
+
+/* ── CARD SHIMMER SWEEP ── */
+@keyframes sweep{0%{left:-100%}100%{left:200%}}
+.r-card::after,.aw-card::after,.pub-card::after,.conf-card::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);pointer-events:none;transition:none;}
+.r-card:hover::after,.aw-card:hover::after,.pub-card:hover::after,.conf-card:hover::after{animation:sweep .6s ease forwards;}
+
+/* ── AVATAR SPIN ── */
+.avatar{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;}
+.avatar:hover{transform:rotateY(360deg) scale(1.12);box-shadow:0 0 50px rgba(124,92,252,.6),0 0 100px rgba(255,107,157,.3);}
+
+/* ── BUTTON RIPPLE ── */
+.btn-grad,.btn-ghost{position:relative;overflow:hidden;}
+.btn-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:ripple .55s linear;pointer-events:none;}
+@keyframes ripple{to{transform:scale(4);opacity:0;}}
+
+/* ── FLOATING AWARD ICONS ── */
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-6px) rotate(8deg)}}
+.aw-icon{animation:iconFloat 3s ease-in-out infinite;display:inline-block;}
+.aw-card:nth-child(1) .aw-icon{animation-delay:0s;}
+.aw-card:nth-child(2) .aw-icon{animation-delay:.5s;}
+.aw-card:nth-child(3) .aw-icon{animation-delay:1s;}
+.aw-card:nth-child(4) .aw-icon{animation-delay:1.5s;}
+
+/* 3D section titles handled in global upgrades */
+
+/* Footer name pulse */
+@keyframes ftPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.4) drop-shadow(0 0 8px rgba(169,139,255,.6))}}
+.ft-grad{animation:ftPulse 3s ease-in-out infinite;}
+
+/* ── TIMELINE ITEM 3D ── */
+.tl-item{transition:transform .25s;}
+.tl-item:hover{transform:perspective(600px) rotateY(2deg) translateX(8px);}
+
+/* ── SKILL TAG 3D ── */
+.stag{transition:transform .2s,box-shadow .2s;}
+.stag:hover{transform:perspective(400px) rotateY(-8deg) translateY(-3px) scale(1.08);}
+
+/* ── CONTACT LINK 3D ── */
+.ct-link{transition:color .2s,transform .2s,padding-left .2s;}
+.ct-link:hover{transform:perspective(400px) rotateY(2deg) translateX(6px);padding-left:4px;}
+
+/* ── GLOBAL STYLE UPGRADES ── */
+@keyframes dividerGlow{0%,100%{opacity:.4;transform:scaleX(.6)}50%{opacity:1;transform:scaleX(1)}}
+@keyframes sectionEntrance{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes gradBorder{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* Animated dividers */
+.sec-divider{border:none;height:2px;background:linear-gradient(90deg,transparent,var(--p1),var(--p2),var(--p3),var(--p4),var(--p5),transparent);background-size:200% auto;animation:gradBorder 4s linear infinite;margin:0;opacity:.5;}
+
+/* Section header glow on hover */
+.sec-title{text-shadow:0 2px 0 rgba(124,92,252,.2),0 4px 8px rgba(0,0,0,.3);transition:text-shadow .3s,transform .3s,letter-spacing .3s;}
+.sec-title:hover{text-shadow:0 0 30px rgba(169,139,255,.5),0 4px 0 rgba(124,92,252,.4),0 8px 20px rgba(124,92,252,.2);transform:translateY(-3px);letter-spacing:-.04em;}
+
+/* Glowing section eye labels */
+.sec-eye{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem;font-family:'Space Grotesk',sans-serif;background:linear-gradient(90deg,var(--p1l),var(--p2l),var(--p3l),var(--p1l));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 3s linear infinite;}
+
+/* Animated sec-bar wider + taller */
+.sec-bar{width:70px;height:6px;border-radius:3px;margin:1rem 0 2.8rem;background-size:200% auto;animation:gradShift 3s ease infinite;}
+
+/* Section background depth */
+#education{background:linear-gradient(135deg,rgba(124,92,252,.06) 0%,rgba(255,107,157,.03) 100%);border-radius:28px;border:1px solid rgba(124,92,252,.08);}
+#research{background:linear-gradient(135deg,rgba(0,212,170,.06) 0%,rgba(62,207,255,.03) 100%);border-radius:28px;border:1px solid rgba(0,212,170,.08);}
+#publications{background:linear-gradient(135deg,rgba(62,207,255,.06) 0%,rgba(124,92,252,.03) 100%);border-radius:28px;border:1px solid rgba(62,207,255,.08);}
+#conferences{background:linear-gradient(135deg,rgba(255,107,157,.06) 0%,rgba(255,184,48,.03) 100%);border-radius:28px;border:1px solid rgba(255,107,157,.08);}
+#skills{background:linear-gradient(135deg,rgba(255,184,48,.06) 0%,rgba(255,112,67,.03) 100%);border-radius:28px;border:1px solid rgba(255,184,48,.08);}
+#contact{background:linear-gradient(135deg,rgba(255,112,67,.06) 0%,rgba(124,92,252,.03) 100%);border-radius:28px;border:1px solid rgba(255,112,67,.08);}
+
+/* Upgraded card styles */
+.r-card,.aw-card,.pub-card,.conf-card{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+[data-theme="dark"] .r-card,[data-theme="dark"] .aw-card,[data-theme="dark"] .pub-card,[data-theme="dark"] .conf-card{background:rgba(14,14,26,.8);}
+
+/* Glowing profile card */
+.profile-card{animation:borderGlow 4s ease-in-out infinite;border:1px solid rgba(124,92,252,.3);}
+
+/* Footer upgrade */
+footer{border-top:none;padding:3rem 2rem;text-align:center;font-size:12px;color:var(--text3);background:linear-gradient(135deg,rgba(124,92,252,.08),rgba(255,107,157,.06),rgba(0,212,170,.04));font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3),var(--p4),var(--p5));background-size:200% auto;animation:gradBorder 3s linear infinite;}
+
+/* Noise texture */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");}
+
+/* COLOURFUL ENHANCEMENTS */
+@keyframes nfscPulse{0%,100%{box-shadow:0 0 14px rgba(255,184,48,.45),0 0 28px rgba(255,184,48,.2)}50%{box-shadow:0 0 22px rgba(255,184,48,.8),0 0 44px rgba(255,184,48,.4)}}
+@keyframes gradShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
+@keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes borderGlow{0%,100%{box-shadow:0 0 20px rgba(124,92,252,.4),0 0 40px rgba(255,107,157,.2)}50%{box-shadow:0 0 30px rgba(0,212,170,.4),0 0 60px rgba(62,207,255,.3)}}
+
+/* Hero mesh background */
+.hero{position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(124,92,252,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 80%,rgba(255,107,157,.1) 0%,transparent 55%),radial-gradient(ellipse 40% 40% at 80% 10%,rgba(0,212,170,.08) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.hero-left,.hero-right{position:relative;z-index:1;}
+
+/* Floating colour orbs */
+.orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;opacity:.18;animation:float 8s ease-in-out infinite;}
+.orb1{width:400px;height:400px;background:radial-gradient(circle,var(--p1),transparent);top:-100px;right:-100px;animation-delay:0s;}
+.orb2{width:300px;height:300px;background:radial-gradient(circle,var(--p2),transparent);bottom:20%;left:-80px;animation-delay:3s;}
+.orb3{width:250px;height:250px;background:radial-gradient(circle,var(--p3),transparent);bottom:-50px;right:20%;animation-delay:5s;}
+
+/* Animated gradient hero name */
+.grad1{background:linear-gradient(270deg,var(--p1l),var(--p2),var(--p3l),var(--p5l),var(--p1l));background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 5s ease infinite;}
+
+/* Glowing animated profile card border */
+.profile-card{animation:borderGlow 4s ease-in-out infinite;border:1px solid rgba(124,92,252,.3);}
+
+/* Colourful section backgrounds handled in global upgrades above */
+
+/* Card hover glow */
+.r-card:hover{box-shadow:0 8px 32px rgba(124,92,252,.2),0 0 0 1px rgba(124,92,252,.15);}
+.r-card.col1:hover{box-shadow:0 8px 32px rgba(124,92,252,.25);}
+.r-card.col2:hover{box-shadow:0 8px 32px rgba(255,107,157,.25);}
+.r-card.col3:hover{box-shadow:0 8px 32px rgba(0,212,170,.25);}
+.aw-card:hover{box-shadow:0 8px 28px rgba(124,92,252,.2);}
+.aw-card.a1:hover{box-shadow:0 8px 28px rgba(124,92,252,.3);}
+.aw-card.a2:hover{box-shadow:0 8px 28px rgba(255,184,48,.3);}
+.aw-card.a3:hover{box-shadow:0 8px 28px rgba(0,212,170,.3);}
+.aw-card.a4:hover{box-shadow:0 8px 28px rgba(255,107,157,.3);}
+.pub-card:hover{box-shadow:0 6px 24px rgba(62,207,255,.2);}
+.conf-card:hover{box-shadow:0 6px 20px rgba(255,107,157,.15);}
+
+/* Stat box colourful glow on hover */
+.stat-box:hover{transform:scale(1.06);transition:.2s;}
+
+/* Nav logo shimmer */
+.nav-logo{background:linear-gradient(270deg,var(--p1l),var(--p2),var(--p3l),var(--p1l));background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradShift 4s ease infinite;}
+
+/* Colourful skill tag hover */
+.stag:hover{box-shadow:0 4px 14px rgba(124,92,252,.3);}
+.stag.s1:hover{box-shadow:0 4px 14px rgba(124,92,252,.4);}
+.stag.s2:hover{box-shadow:0 4px 14px rgba(255,107,157,.4);}
+.stag.s3:hover{box-shadow:0 4px 14px rgba(0,212,170,.4);}
+.stag.s4:hover{box-shadow:0 4px 14px rgba(255,184,48,.4);}
+.stag.s5:hover{box-shadow:0 4px 14px rgba(62,207,255,.4);}
+.stag.s6:hover{box-shadow:0 4px 14px rgba(255,112,67,.4);}
+
+/* Sec-bar animated */
+.sec-bar{background-size:200% auto;animation:gradShift 3s ease infinite;}
+.bar1{background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3),var(--p1));background-size:200% auto;}
+.bar2{background:linear-gradient(90deg,var(--p3),var(--p5),var(--p1),var(--p3));background-size:200% auto;}
+.bar3{background:linear-gradient(90deg,var(--p4),var(--p6),var(--p2),var(--p4));background-size:200% auto;}
+.bar4{background:linear-gradient(90deg,var(--p2),var(--p1),var(--p5),var(--p2));background-size:200% auto;}
+.bar5{background:linear-gradient(90deg,var(--p5),var(--p3),var(--p4),var(--p5));background-size:200% auto;}
+.bar6{background:linear-gradient(90deg,var(--p6),var(--p4),var(--p1),var(--p6));background-size:200% auto;}
+.bar7{background:linear-gradient(90deg,var(--p1),var(--p3),var(--p2),var(--p1));background-size:200% auto;}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{flex-direction:column-reverse;gap:2rem;padding:3.5rem 1.5rem 3rem;min-height:auto}
+  .hero-right{width:100%;max-width:300px;margin:0 auto}
+  .ct-grid{grid-template-columns:1fr}
+  section{padding:4rem 1.5rem}
+  nav{padding:0 1.5rem}
+}
+@media(max-width:500px){
+  .conf-grid{grid-template-columns:1fr}
+  .aw-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<nav>
+  <a href="#" class="nav-logo">MRD</a>
+  <ul class="nav-links">
+    <li class="nav-item" data-menu="education">
+      <a href="#education" class="nav-top">Education <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="#education" class="nd-link">🎓 Ph.D. in Economics</a>
+        <a href="#education" class="nd-link">📘 M.A. Economics</a>
+        <a href="#education" class="nd-link">🏫 B.A. (Hons.) Economics</a>
+        <a href="#education" class="nd-link">📜 Higher Secondary</a>
+      </div>
+    </li>
+    <li class="nav-item" data-menu="research">
+      <a href="#research" class="nav-top">Research <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="#research" class="nd-link">🔬 Ph.D. Research</a>
+        <a href="#research" class="nd-link">📋 ICSSR Field Work</a>
+        <a href="#research" class="nd-link">🏛️ Institutional Roles</a>
+      </div>
+    </li>
+    <li class="nav-item" data-menu="publications">
+      <a href="#publications" class="nav-top">Publications <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="#publications" class="nd-link">📗 Book Chapter</a>
+        <a href="#publications" class="nd-link">📙 Edited Book</a>
+        <a href="#conferences" class="nd-link">🎤 10 Conferences</a>
+      </div>
+    </li>
+    <li class="nav-item" data-menu="skills">
+      <a href="#skills" class="nav-top">Skills <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="#skills" class="nd-link">🔍 Research Skills</a>
+        <a href="#skills" class="nd-link">📊 Statistical Tools</a>
+        <a href="#skills" class="nd-link">🌐 Languages</a>
+      </div>
+    </li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#research" onclick="closeMenu()">Research</a>
+  <a href="#publications" onclick="closeMenu()">Publications</a>
+  <a href="#conferences" onclick="closeMenu()">Conferences</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="dot-pulse"></span>
+      <span>Ph.D. Research Scholar · Economics</span>
+    </div>
+    <h1 id="heroName"></h1>
+    <p class="hero-desc">Researcher specialising in Development Economics, Rural &amp; Tribal Livelihood. Exploring the nexus of NTFPs, tribal economies, and sustainable development in Odisha.</p>
+    <div class="pill-row">
+      <span class="pill pill-v">ICSSR Doctoral Fellow</span>
+      <span class="pill pill-p">UGC NET × 5</span>
+      <span class="pill pill-g">Mukhya Mantri Fellow 2025</span>
+      <span class="pill pill-y" style="background:linear-gradient(135deg,var(--p4b),rgba(255,184,48,.3));color:var(--p4l);border-color:var(--p4);box-shadow:0 0 14px rgba(255,184,48,.45),0 0 28px rgba(255,184,48,.2);font-weight:800;animation:nfscPulse 2s ease-in-out infinite;">⭐ UGC NFSC 2024</span>
+      <span class="pill pill-b">MSCB University</span>
+    </div>
+    <div class="btn-row">
+      <a href="mailto:manasranjandalai1220@gmail.com" class="btn-grad">Get in Touch</a>
+      <a href="#publications" class="btn-ghost">View Publications</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="profile-card">
+      <div class="avatar"><img src="photo.jpg" alt="Manas Ranjan Dalai"></div>
+      <h3><span class="name-hl">Manas Ranjan Dalai</span></h3>
+      <p class="role">Department of Economics<br>MSCB University · Baripada, Odisha</p>
+      <div class="stat-grid">
+        <div class="stat-box"><span class="snum c1">10</span><span class="slbl">Papers</span></div>
+        <div class="stat-box"><span class="snum c2">5×</span><span class="slbl">NET</span></div>
+        <div class="stat-box"><span class="snum c3">4</span><span class="slbl">Awards</span></div>
+        <div class="stat-box"><span class="snum c4">2</span><span class="slbl">Pubs</span></div>
+        <div class="stat-box"><span class="snum c5">11</span><span class="slbl">Workshops</span></div>
+        <div class="stat-box"><span class="snum c6">7+</span><span class="slbl">Field Mths</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="sec-divider">
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="sec-eye c1">Academic Journey</p>
+  <h2 class="sec-title">Education</h2>
+  <div class="sec-bar bar1"></div>
+  <div class="edu-tree">
+    <!-- ROOT: Education label at top -->
+    <div class="tree-root">
+      <div class="tree-root-box">Education</div>
+      <div class="tree-trunk"></div>
+      <div class="tree-branch-bar"></div>
+    </div>
+
+    <!-- 5 branch nodes: right-to-left order (2015 first on left, 2023 last on right) -->
+    <div class="tree-nodes">
+
+      <div class="tree-node tn5">
+        <div class="tree-stem"></div>
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-inner">
+            <div class="tl-year c5">2015</div>
+            <div class="tl-ttl">High School (BSE Odisha)</div>
+            <div class="tl-sub">Board of Secondary Education, Odisha</div>
+            <span class="score-chip" style="background:var(--p5b);color:var(--p5l);">73.5%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tree-node tn4">
+        <div class="tree-stem"></div>
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-inner">
+            <div class="tl-year c4">2015 – 2017</div>
+            <div class="tl-ttl">Higher Secondary (+2 Arts)</div>
+            <div class="tl-sub">Bhadrak Junior College, Bhadrak</div>
+            <span class="score-chip" style="background:var(--p4b);color:var(--p4l);">69.83%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tree-node tn3">
+        <div class="tree-stem"></div>
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-inner">
+            <div class="tl-year c3">2017 – 2020</div>
+            <div class="tl-ttl">B.A. (Hons.) Economics — Distinction</div>
+            <div class="tl-sub">Bhadrak Autonomous College, FM University, Balasore</div>
+            <span class="score-chip" style="background:var(--p3b);color:var(--p3l);">73.5%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tree-node tn2">
+        <div class="tree-stem"></div>
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-inner">
+            <div class="tl-year c2">2020 – 2022</div>
+            <div class="tl-ttl">M.A. Analytical &amp; Applied Economics</div>
+            <div class="tl-sub">Utkal University, Bhubaneswar</div>
+            <span class="score-chip" style="background:var(--p2b);color:var(--p2l);">78.55%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tree-node tn1">
+        <div class="tree-stem"></div>
+        <div class="tree-dot"></div>
+        <div class="tree-card">
+          <div class="tree-card-inner">
+            <div class="tl-year c1">2023 – Present</div>
+            <div class="tl-ttl">Ph.D. in Economics</div>
+            <div class="tl-sub">MSCB University, Baripada<br>Tribal Livelihood &amp; NTFPs, Mayurbhanj</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- RESEARCH -->
+<section id="research">
+  <p class="sec-eye c3">Academic Work</p>
+  <h2 class="sec-title">Research Experience</h2>
+  <div class="sec-bar bar2"></div>
+  <div class="r-grid">
+    <div class="r-card col1">
+      <div class="r-icon ri1">🔬</div>
+      <h4>Ph.D. Research Scholar</h4>
+      <p>Dept. of Economics, MSCB University. Research focuses on tribal livelihood strategies and NTFPs in Mayurbhanj District, with primary data collection, analysis, and academic writing.</p>
+    </div>
+    <div class="r-card col2">
+      <div class="r-icon ri2">📋</div>
+      <h4>Field Investigator — ICSSR Project</h4>
+      <p>7-month engagement on "Employment Generation &amp; Tribal Livelihood through Sabai Grass." Conducted field surveys, interviews, data documentation and quantitative analysis in Mayurbhanj.</p>
+    </div>
+    <div class="r-card col3">
+      <div class="r-icon ri3">🏛️</div>
+      <h4>Institutional Responsibilities</h4>
+      <p>Served as Moderator &amp; Rapporteur at an International Conference (Apr 2025) and as Associate Coordinator in a Capacity Building Programme on Digital &amp; Financial Literacy (Dec 2025).</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- AWARDS -->
+<section>
+  <p class="sec-eye c4">Recognition</p>
+  <h2 class="sec-title">Fellowships &amp; Awards</h2>
+  <div class="sec-bar bar3"></div>
+  <div class="aw-grid">
+    <div class="aw-card a1"><span class="aw-icon">🏆</span><h4>UGC NET Qualified</h4><p>5 times in Economics — consistent academic excellence</p></div>
+    <div class="aw-card a2"><span class="aw-icon">🎓</span><h4>ICSSR Doctoral Fellowship</h4><p>Indian Council of Social Science Research · 2024</p></div>
+    <div class="aw-card a3"><span class="aw-icon">📜</span><h4>UGC NFSC Fellowship</h4><p>National Fellowship for Scheduled Castes · June 2024</p></div>
+    <div class="aw-card a4"><span class="aw-icon">⭐</span><h4>Mukhya Mantri Fellowship</h4><p>Research &amp; Innovation · Government of Odisha · 2025</p></div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <p class="sec-eye c5">Scholarly Output</p>
+  <h2 class="sec-title">Publications</h2>
+  <div class="sec-bar bar4"></div>
+  <div class="pub-list">
+    <div class="pub-card">
+      <div class="pub-icon pi1">📘</div>
+      <div>
+        <div class="pub-type c5">Book Chapter</div>
+        <h4>"Impact of Weather Conditions on the Fishery Sector of Odisha"</h4>
+        <p>In: <em>Responsible Production and Consumption</em>, 2024</p>
+        <span class="scopus-badge">Scopus Indexed</span>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-icon pi2">📗</div>
+      <div>
+        <div class="pub-type c3">Edited Book</div>
+        <h4>"Social Sector, Agriculture and Green Economy: Insights for India's Inclusive and Sustainable Development"</h4>
+        <p>Published: 20th September 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- CONFERENCES -->
+<section id="conferences">
+  <p class="sec-eye c2">Presentations</p>
+  <h2 class="sec-title">Conferences &amp; Seminars</h2>
+  <div class="sec-bar bar5"></div>
+  <div class="conf-grid">
+    <div class="conf-card"><div class="cnum">01</div><h4>"Impact of Climate Change on Indian Tourism Sector: An Analytical Study"</h4><p>Intl. Conference on Climate Change, Disaster Resilience &amp; Human Wellbeing · Berhampur University · Sep 2023</p></div>
+    <div class="conf-card"><div class="cnum">02</div><h4>"Empirical Investigation on Rural Development Through NTFPs: Mayurbhanj District"</h4><p>Research Scholar's Conclave · MSCB University · Feb 2024</p></div>
+    <div class="conf-card"><div class="cnum">03</div><h4>"Energy, CO₂ Emissions and Economic Growth: Diverging Paths of China &amp; India"</h4><p>Intl. Seminar on Modernisation, Social Change &amp; Development · F.M. University · Jan 2025</p></div>
+    <div class="conf-card"><div class="cnum">04</div><h4>"Sabai Grass Craftsmen of Mayurbhanj District: Perceptions and Challenges"</h4><p>57th Annual Conference · Odisha Economic Association, Ravenshaw University · Feb 2025</p></div>
+    <div class="conf-card"><div class="cnum">05</div><h4>"Role of Sabai Grass in Income &amp; Employment Generation for Women"</h4><p>Intl. Conference on Women's Resilience &amp; Empowerment · R.D. Women's University · Mar 2025</p></div>
+    <div class="conf-card"><div class="cnum">06</div><h4>"Sustainable Economic Contribution of Sal Leaf Collection on Tribal Communities"</h4><p>Intl. Conference on India's Pathway to Sustainable Development · MSCB University · Apr 2025</p></div>
+    <div class="conf-card"><div class="cnum">07</div><h4>"Socio-Economic Status of Tribals Engaged in Sabai Grass Activities in Mayurbhanj"</h4><p>National Seminar on Socio-Economic Profile of North Odisha Tribes · MSCB University · Apr 2025</p></div>
+    <div class="conf-card"><div class="cnum">08</div><h4>"Women Financial Independence Through Sabai Grass Crafts: An Econometric Analysis"</h4><p>Intl. Conference on Sustainable Development Practices · Karunya Institute · Aug 2025</p></div>
+    <div class="conf-card"><div class="cnum">09</div><h4>"Economic Sustainability &amp; Livelihood Strategies among Lodha PVTG in Mayurbhanj"</h4><p>Odisha Research Conclave · Berhampur University · Nov 2025</p></div>
+    <div class="conf-card"><div class="cnum">10</div><h4>"NTFP Income, Livelihood Strategies &amp; Coping Mechanisms of Tribal Communities"</h4><p>Intl. Seminar on Democracy, Development &amp; Diversity · Fakir Mohan University · Dec 2025</p></div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="sec-eye c6">Competencies</p>
+  <h2 class="sec-title">Skills &amp; Tools</h2>
+  <div class="sec-bar bar6"></div>
+  <div class="sk-grid">
+    <div>
+      <div class="sk-head">Research Skills</div>
+      <div class="tag-cloud">
+        <span class="stag s1">Field Surveys</span>
+        <span class="stag s1">Data Analysis</span>
+        <span class="stag s1">Report Writing</span>
+        <span class="stag s1">Academic Writing</span>
+        <span class="stag s1">Primary Data Collection</span>
+        <span class="stag s1">Questionnaire Design</span>
+      </div>
+    </div>
+    <div>
+      <div class="sk-head">Statistical &amp; Technical Tools</div>
+      <div class="tag-cloud">
+        <span class="stag s3">STATA</span>
+        <span class="stag s5">SPSS</span>
+        <span class="stag s2">EVIEWS</span>
+        <span class="stag s3">R</span>
+        <span class="stag s4">MATLAB</span>
+        <span class="stag s6">Excel</span>
+        <span class="stag s5">JAMOVI</span>
+        <span class="stag s1">DEA</span>
+        <span class="stag s3">GIS</span>
+        <span class="stag s4">VOSviewer</span>
+        <span class="stag s2">LaTeX</span>
+        <span class="stag s5">Python (Data Viz)</span>
+      </div>
+    </div>
+    <div>
+      <div class="sk-head">Languages</div>
+      <div class="tag-cloud">
+        <span class="stag s4">Odia</span>
+        <span class="stag s6">Hindi</span>
+        <span class="stag s5">English</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="sec-eye c1">Let's Connect</p>
+  <h2 class="sec-title">Contact</h2>
+  <div class="sec-bar bar7"></div>
+  <div class="ct-grid">
+    <div class="ct-left">
+      <h3>Open to collaborations &amp; opportunities</h3>
+      <p>Interested in academic collaborations, research projects, or discussions around tribal economics, development studies, and NTFPs in India. References are available upon request.</p>
+      <a href="mailto:manasranjandalai1220@gmail.com" class="ct-link">
+        <span class="ct-ico ci1">✉️</span>manasranjandalai1220@gmail.com
+      </a>
+      <a href="#" class="ct-link">
+        <span class="ct-ico ci2">🏛️</span>Dept. of Economics, MSCB University, Baripada
+      </a>
+      <a href="#" class="ct-link">
+        <span class="ct-ico ci3">📍</span>Odisha, India
+      </a>
+    </div>
+    <div>
+      <div class="ct-card">
+        <h4>Professional Memberships</h4>
+        <p class="sub">Academic associations &amp; institutional affiliations</p>
+        <div class="mem-item"><span class="mdot" style="background:var(--p3);box-shadow:0 0 6px var(--p3);"></span>Life Member — Odisha Economic Association</div>
+        <div class="mem-item"><span class="mdot" style="background:var(--p1);box-shadow:0 0 6px var(--p1);"></span>Ph.D. Scholar — MSCB University, Baripada</div>
+        <div class="mem-item"><span class="mdot" style="background:var(--p4);box-shadow:0 0 6px var(--p4);"></span>ICSSR Doctoral Fellow · 2024</div>
+        <div class="mem-item"><span class="mdot" style="background:var(--p2);box-shadow:0 0 6px var(--p2);"></span>Mukhya Mantri Research Fellow · 2025</div>
+        <div style="margin-top:1.5rem;">
+          <a href="mailto:manasranjandalai1220@gmail.com" class="btn-grad">Send Email ✉</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 <span class="ft-grad name-hl-sm">Manas Ranjan Dalai</span> · Ph.D. Scholar in Economics · MSCB University, Baripada · Odisha, India</p>
+</footer>
+
+<canvas id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.5"></canvas>
+<div id="spotlight" style="position:fixed;pointer-events:none;z-index:1;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.07) 0%,transparent 70%);transform:translate(-50%,-50%);transition:opacity .3s;"></div>
+
+<script>
+/* ── SKILL BARS ANIMATE ON SCROLL ── */
+const barIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.querySelectorAll('.sk-bar-fill').forEach(bar=>{
+      bar.style.width=bar.style.getPropertyValue('--w')||getComputedStyle(bar).getPropertyValue('--w');
+    });
+    barIO.unobserve(e.target);
+  });
+},{threshold:.3});
+const skWrap=document.querySelector('.sk-wrap');
+if(skWrap)barIO.observe(skWrap);
+
+/* ── EDUCATION TREE TOGGLE ── */
+function toggleNode(node){
+  const isOpen=node.classList.contains('open');
+  document.querySelectorAll('.tree-node').forEach(n=>n.classList.remove('open'));
+  if(!isOpen)node.classList.add('open');
+}
+
+/* ── NAME LETTER SPLITTER ── */
+function splitName(el,baseClass){
+  if(!el)return;
+  const text=el.textContent;
+  el.innerHTML='';
+  let ci=0;
+  [...text].forEach(ch=>{
+    if(ch===' '){el.appendChild(document.createTextNode('\u00a0'));return;}
+    const s=document.createElement('span');
+    s.className=`name-letter nl${ci%17}`;
+    s.textContent=ch;
+    el.appendChild(s);
+    ci++;
+  });
+}
+document.querySelectorAll('.name-hl,.name-hl-sm').forEach(el=>splitName(el));
+
+/* ── HERO H1 BUILD ── */
+(function(){
+  const h=document.getElementById('heroName');
+  if(!h)return;
+  // Line 1: Manas Ranjan
+  const line1=['M','a','n','a','s',' ','R','a','n','j','a','n'];
+  // Line 2: Dalai (grad)
+  const line2=['D','a','l','a','i'];
+  let ci=0;
+  line1.forEach(ch=>{
+    if(ch===' '){h.appendChild(document.createTextNode('\u00a0'));return;}
+    const s=document.createElement('span');
+    s.className=`name-letter nl${ci%17}`;
+    s.textContent=ch;
+    h.appendChild(s);
+    ci++;
+  });
+  h.appendChild(document.createElement('br'));
+  const grad=document.createElement('span');
+  grad.className='grad1';
+  line2.forEach(ch=>{
+    const s=document.createElement('span');
+    s.className=`name-letter nl${ci%17}`;
+    s.style.cssText='-webkit-text-fill-color:transparent;background:inherit;-webkit-background-clip:text;';
+    s.textContent=ch;
+    grad.appendChild(s);
+    ci++;
+  });
+  h.appendChild(grad);
+})();
+
+/* ── NAV DROPDOWNS ── */
+document.querySelectorAll('.nav-item').forEach(item=>{
+  item.addEventListener('click',e=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+    e.stopPropagation();
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('open')));
+document.querySelectorAll('.nd-link').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+
+/* ── NAV SHRINK ON SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').classList.toggle('scrolled',window.scrollY>40);
+  document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('open'));
+});
+
+/* ── THEME / MENU ── */
+function toggleTheme(){const h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';}
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');}
+
+/* ── SPOTLIGHT CURSOR ── */
+const spot=document.getElementById('spotlight');
+document.addEventListener('mousemove',e=>{spot.style.left=e.clientX+'px';spot.style.top=e.clientY+'px';});
+
+/* ── PARTICLE CANVAS ── */
+(function(){
+  const c=document.getElementById('particles'),ctx=c.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  const COLS=['rgba(169,139,255,','rgba(255,153,192,','rgba(77,255,220,','rgba(144,229,255,','rgba(255,212,122,'];
+  for(let i=0;i<110;i++)pts.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:Math.random()*1.6+.3,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,c:COLS[Math.floor(Math.random()*COLS.length)],o:Math.random()*.7+.2});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.c+p.o+')';ctx.fill();
+    });
+    // draw connecting lines between nearby particles
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<90){
+          ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle=`rgba(169,139,255,${.12*(1-dist/90)})`;ctx.lineWidth=.5;ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── SCROLL REVEAL ── */
+const revealCSS=document.createElement('style');
+revealCSS.textContent=`
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.reveal.from-left{transform:translateX(-40px);}
+.reveal.from-right{transform:translateX(40px);}
+.reveal.scale-in{transform:scale(.92);}
+.reveal.visible{opacity:1!important;transform:none!important;}
+`;
+document.head.appendChild(revealCSS);
+function addReveal(sel,cls='',delay=0){
+  document.querySelectorAll(sel).forEach((el,i)=>{
+    el.classList.add('reveal');
+    if(cls)el.classList.add(cls);
+    el.style.transitionDelay=(delay+i*80)+'ms';
+  });
+}
+addReveal('.tl-item','from-left');
+addReveal('.r-card','scale-in');
+addReveal('.aw-card','scale-in');
+addReveal('.pub-card','from-left');
+addReveal('.conf-card');
+addReveal('.sec-title');
+addReveal('.sec-eye');
+addReveal('.sk-grid > div','from-left');
+addReveal('.ct-left','from-left');
+addReveal('.ct-card','from-right');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ── ANIMATED COUNTERS ── */
+function animCount(el,target,suffix){
+  let start=0,dur=1400,step=16;
+  const inc=target/(dur/step);
+  const t=setInterval(()=>{
+    start+=inc;
+    if(start>=target){el.textContent=target+suffix;clearInterval(t);return;}
+    el.textContent=Math.floor(start)+suffix;
+  },step);
+}
+const countIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.querySelectorAll('.snum').forEach(el=>{
+      const raw=el.textContent.trim();
+      const num=parseInt(raw);const suffix=raw.replace(/[0-9]/g,'');
+      if(!isNaN(num))animCount(el,num,suffix);
+    });
+    countIO.unobserve(e.target);
+  });
+},{threshold:.5});
+const sg=document.querySelector('.stat-grid');
+if(sg)countIO.observe(sg);
+
+/* ── MAGNETIC BUTTONS + RIPPLE ── */
+document.querySelectorAll('.btn-grad,.btn-ghost').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const x=(e.clientX-r.left-r.width/2)*.28;
+    const y=(e.clientY-r.top-r.height/2)*.28;
+    btn.style.transform=`translate(${x}px,${y}px) translateY(-2px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  btn.addEventListener('click',e=>{
+    const r=btn.getBoundingClientRect();
+    const rip=document.createElement('span');
+    const size=Math.max(r.width,r.height);
+    rip.className='btn-ripple';
+    rip.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px;`;
+    btn.appendChild(rip);
+    setTimeout(()=>rip.remove(),600);
+  });
+});
+
+/* ── PROFILE CARD TILT ── */
+const card=document.querySelector('.profile-card');
+if(card){
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(600px) rotateY(${x*16}deg) rotateX(${-y*16}deg) scale(1.04)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.transition='transform .5s ease';});
+  card.addEventListener('mouseenter',()=>{card.style.transition='transform .1s ease';});
+}
+
+/* ── STAGGER PILLS ON LOAD ── */
+document.querySelectorAll('.pill').forEach((p,i)=>{
+  p.style.opacity='0';p.style.transform='translateY(12px) scale(.9)';
+  p.style.transition=`opacity .4s ease ${600+i*90}ms,transform .4s cubic-bezier(.34,1.56,.64,1) ${600+i*90}ms`;
+  setTimeout(()=>{p.style.opacity='1';p.style.transform='translateY(0) scale(1)';},100);
+});
+
+/* ── HERO ENTRANCE SEQUENCE ── */
+const eyebrow=document.querySelector('.hero-eyebrow');
+if(eyebrow){eyebrow.style.cssText+='opacity:0;transform:translateY(-16px);transition:opacity .5s ease 200ms,transform .5s ease 200ms;';setTimeout(()=>{eyebrow.style.opacity='1';eyebrow.style.transform='translateY(0)';},100);}
+const desc=document.querySelector('.hero-desc');
+if(desc){desc.style.cssText+='opacity:0;transition:opacity .7s ease 1600ms;';setTimeout(()=>{desc.style.opacity='1';},100);}
+const btnRow=document.querySelector('.btn-row');
+if(btnRow){btnRow.style.cssText+='opacity:0;transform:translateY(10px);transition:opacity .5s ease 1900ms,transform .5s ease 1900ms;';setTimeout(()=>{btnRow.style.opacity='1';btnRow.style.transform='translateY(0)';},100);}
+
+/* ── HERO NAME LETTER ENTRANCE ── */
+document.querySelectorAll('#heroName .name-letter').forEach((l,i)=>{
+  l.style.opacity='0';l.style.transform='translateY(30px) rotateX(-40deg)';
+  l.style.transition=`opacity .4s ease ${400+i*45}ms,transform .5s cubic-bezier(.34,1.56,.64,1) ${400+i*45}ms`;
+  setTimeout(()=>{l.style.opacity='1';l.style.transform='';},100);
+});
+</script>
+</body>
+</html>
